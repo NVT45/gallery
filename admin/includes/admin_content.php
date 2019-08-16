@@ -9,6 +9,7 @@
                         </h1>
                        <?php 
                            
+
                            
                             // $result_set = User::find_all_users(); nếu đã khai báo static
                             // while ($row = mysqli_fetch_array($result_set)) {
@@ -28,13 +29,21 @@
                             //     echo $user->id;
                             // }
 
-                            $found_user = User::find_user_by_id(1);
+                            // $found_user = User::find_user_by_id(1);
 
-                            echo $found_user->username;
+                            // echo $found_user->username;
 
-                            
+                            // $user = new User();
 
+                            // $user -> username = "Kathy";
+                            // $user -> password = "123456";
+                            // $user -> first_name = "Pretty";
+                            // $user -> last_name = "Kathy";
+                            // $user->create();
 
+                            // $user = new User();
+                            // $user -> first_name = "Warlock_2000";
+                            // $user -> save();
 
                         ?>
                         <ol class="breadcrumb">
