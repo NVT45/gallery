@@ -33,17 +33,16 @@
 
                             // echo $found_user->username;
 
-                            // $user = new User();
+                            $user = new User();
 
-                            // $user -> username = "Kathy";
-                            // $user -> password = "123456";
-                            // $user -> first_name = "Pretty";
-                            // $user -> last_name = "Kathy";
-                            // $user->create();
+                            $user -> username = "Iron";
+                            $user -> password = "i123456";
+                            $user -> first_name = "Iron";
+                            $user -> last_name = "Man";
+                            $user->create();
 
-                            // $user = new User();
-                            // $user -> first_name = "Warlock_2000";
-                            // $user -> save();
+                            
+
 
                         ?>
                         <ol class="breadcrumb">
