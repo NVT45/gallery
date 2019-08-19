@@ -29,9 +29,9 @@
                             //     echo $photos->description;
                             // }
 
-                            $found_user = Photo::find_by_id(1);
+                            // $found_user = Photo::find_by_id(1);
 
-                            echo $found_user->title;
+                            // echo $found_user->title;
 
                             // $photo = new Photo();
 
