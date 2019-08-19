@@ -13,7 +13,7 @@ class Photo extends Db_object{
 		public $tmp_path;
 		public $upload_directory = "images";
 		public $errors = array();
-		public $load_errors_array = array(
+		public $upload_errors_array = array(
 		UPLOAD_ERR_OK => "There is no error, the file uploaded with success",
 		UPLOAD_ERR_INI_SIZE => "The uploaded file exceeds the upload_max_filesize directive", 
 		UPLOAD_ERR_FORM_SIZE => "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form",
@@ -47,6 +47,10 @@ class Photo extends Db_object{
 			
 		}
 
+		public function picture_path(){
+			return $this->upload_directory.DS.$this->filename;
+		}
+
 		public function save(){
 				if($this->photo_id){
 					$this->update();
@@ -62,7 +66,7 @@ class Photo extends Db_object{
 
 					$target_path = SITE_ROOT.DS.'admin'.DS.$this->upload_directory.DS.$this->filename;
 					if(file_exists($target_path)){
-						$this->errors[]= "The file {$this->file} already exists ";
+						$this->errors[]= "The file {$this->filename} already exists ";
 						return false;
 					}
 					if(move_uploaded_file($this->tmp_path, $target_path)){
