@@ -23,27 +23,22 @@
                             // echo $user->password;
 
 
-                            // $users = User::find_all_users();
+                            // $photo = Photo::find_all();
 
-                            // foreach ($users as $user) {
-                            //     echo $user->id;
+                            // foreach ($photo as $photos) {
+                            //     echo $photos->description;
                             // }
 
                             // $found_user = User::find_user_by_id(1);
 
                             // echo $found_user->username;
 
-                            $user = new User();
+                            // $photo = new Photo();
 
-                            $user -> username = "Iron";
-                            $user -> password = "i123456";
-                            $user -> first_name = "Iron";
-                            $user -> last_name = "Man";
-                            $user->create();
-
-                            
-
-
+                            // $photo -> title = "Test Image";
+                            // $photo -> size = "20";
+                            // $photo->create();
+                       
                         ?>
                         <ol class="breadcrumb">
                             <li>
