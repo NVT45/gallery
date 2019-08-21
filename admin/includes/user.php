@@ -2,16 +2,52 @@
 
 class User extends Db_object{
 		protected static $db_table = "users";
-		protected static $db_table_fields = array('username','password','first_name','last_name');//
+		protected static $db_table_fields = array('username','password','first_name','last_name','user_image');//
 		public $id;
 		public $username;
 		public $password;
 		public $first_name;
 		public $last_name;
+		public $user_image;
+		public $upload_directory = "images";
+		public $image_placeholder = "http://placehold.it/400x400&text=image";
+		
+
+public function image_path_and_placeholder(){
+
+	return empty($this->user_image) ? $this->image_placeholder : $this->upload_directory.DS.$this->user_image;
+}
 
 
+		public function save_user_and_image(){
+			
+					if(!empty($this->errors)){
+						return false;
+					}
 
+					if(empty($this->user_image) || empty($this->tmp_path)){
+						$this->errors[] = "The file was not avainable ";
+						return false;
+					}
 
+					$target_path = SITE_ROOT.DS.'admin'.DS.$this->upload_directory.DS.$this->user_image;
+					if(file_exists($target_path)){
+						$this->errors[]= "The file {$this->user_image} already exists ";
+						return false;
+					}
+					if(move_uploaded_file($this->tmp_path, $target_path)){
+						
+							unset($this->tmp_path);
+							return true;
+						
+
+					}
+					else{
+						$this->errors[]= "The file directory probably does not have permission";
+						return false;
+					}
+
+		}
 public static function verify_user($username, $password){
 
 	global $database;
@@ -26,6 +62,7 @@ public static function verify_user($username, $password){
 	return !empty($the_result_array) ? array_shift($the_result_array) : false;
 
 }
+
 
 	
 }
