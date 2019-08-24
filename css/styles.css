@@ -1,0 +1,11 @@
+.img-thumbnail {
+	width: 250px;
+	height: 200px;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	transition: all 2s;
+	
+}
+.img-thumbnail:hover{
+	filter: blur(2px);
+}

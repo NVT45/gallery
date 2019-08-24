@@ -41,8 +41,7 @@ public function image_path_and_placeholder(){
 							return true;
 						
 
-					}
-					else{
+					}else{
 						$this->errors[]= "The file directory probably does not have permission";
 						return false;
 					}
