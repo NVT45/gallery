@@ -9,3 +9,8 @@
 .img-thumbnail:hover{
 	filter: blur(2px);
 }
+
+.pager .active a{
+	background-color: #6699FF;
+
+}

@@ -15,6 +15,8 @@
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
+     <link href="./admin/css/bootstrap-rlt.css" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href="css/blog-home.css" rel="stylesheet">
 
