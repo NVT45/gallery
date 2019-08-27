@@ -5,6 +5,7 @@ var user_id;
 var image_src;
 var image_href_splitted;
 var image_id;
+var photo_id;
 $('.modal_thumbnails').click(function(){
 
 	$('#set_user_image').prop('disabled',false);
@@ -17,7 +18,22 @@ $('.modal_thumbnails').click(function(){
 	image_src = $(this).prop('src');
 	image_href_splitted = image_src.split("/");
 	image_id = image_href_splitted[image_href_splitted.length -1];// cách lấy chỉ mục lướn nhất mảng
-	
+
+
+	photo_id = $(this).attr("data");
+
+	$.ajax({
+			url: "includes/ajax_code.php",
+			data:{photo_id: photo_id,},
+			type: "POST",
+			success:function(data){
+				if(!data.error){
+					
+					$("#modal_sidebar").html(data);
+				}
+			}
+		})
+
 });
 
 $('#set_user_image').click(function(){
@@ -33,6 +49,10 @@ $('#set_user_image').click(function(){
 				}
 			}
 		})
+});
+
+$('.delete_link').click(function(){
+return confirm("Are you want to delete ???");
 });
 tinymce.init({selector:'textarea'});
 });

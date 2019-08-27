@@ -75,6 +75,15 @@ public function ajax_save_user_image($user_image,$user_id){
 
 }
 
+public function delete_photo(){
+			if($this->delete()){
+				$target_path = SITE_ROOT.DS.'admin'.DS.$this->upload_directory. DS . $this->user_image;
+				return unlink($target_path) ? true :false ;
+			}else {
+				return false;
+			}
+		}
+
 	
 }
 

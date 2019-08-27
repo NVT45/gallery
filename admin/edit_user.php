@@ -18,12 +18,16 @@ if(isset($_POST['update'])){
     $user->password = $_POST['password'];
     if(empty($_FILES['user_image'])){
       $user->save();
+      redirect("users.php");
+      $session->message("The user has been update");
     }
     else{
       $user->set_file($_FILES['user_image']);
-    $user->save_user_and_image();
+      $user->save_user_and_image();
       $user->save();
-      redirect("edit_user.php?id={$user->id}");
+      $session->message("The user has been update");
+      redirect("users.php");
+      // redirect("edit_user.php?id={$user->id}");
 
     }
     
@@ -58,9 +62,10 @@ if(isset($_POST['update'])){
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Upload
+                            Edit 
                             <small>Subheading</small>
                         </h1>
+
                         <div class="col-md-6 user_image_box">
                          <a href="#" data-toggle="modal" data-target="#photo-library"><img class="img-responsive" src="<?php echo $user->image_path_and_placeholder()  ?>" alt=""></a> 
                         </div>
@@ -72,7 +77,7 @@ if(isset($_POST['update'])){
                          </div> 
                         <div class="form-group">
                             <label for="username" > Username </label>
-                            <input type="text" id="username" name="username" class="form-control" value="<?php echo $user->username; ?> "  >  
+                            <input type="text" id="username" name="username" class="form-control" value="<?php echo $user->username; ?>"  >  
                         </div>
                         <div class="form-group">
                             <label for="first name"> First Name </label>
