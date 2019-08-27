@@ -69,7 +69,7 @@ public function ajax_save_user_image($user_image,$user_id){
 	$this->user_image = $user_image;
 	$this->id = $user_id;
 	$sql = 	"UPDATE ".self::$db_table . " SET user_image = '{$this->user_image}' ";
-	$sql .= " WHERE id = '{$this->user_id}' ";
+	$sql .= " WHERE id = '{$this->id}' ";
 	 $upload_image = $database->query($sql);
 	echo $this->image_path_and_placeholder();
 
