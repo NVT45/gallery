@@ -1,5 +1,5 @@
 <?php include("includes/header.php"); ?>
-
+<?php include("includes/photo_library_modal.php"); ?>
 <?php 
 
 if(!$session->is_signed_in()) { redirect("login.php");}
@@ -32,6 +32,8 @@ if(isset($_POST['update'])){
 }
  ?>
 
+
+
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -59,8 +61,8 @@ if(isset($_POST['update'])){
                             Upload
                             <small>Subheading</small>
                         </h1>
-                        <div class="col-md-6">
-                          <img class="img-responsive" src="<?php echo $user->image_path_and_placeholder()  ?>" alt="">
+                        <div class="col-md-6 user_image_box">
+                         <a href="#" data-toggle="modal" data-target="#photo-library"><img class="img-responsive" src="<?php echo $user->image_path_and_placeholder()  ?>" alt=""></a> 
                         </div>
                         <div class="col-md-6">
                             <form action="" method="POST" enctype="multipart/form-data">
@@ -85,7 +87,7 @@ if(isset($_POST['update'])){
                             <input type="password" name="password" class="form-control"  value="<?php echo $user->password; ?>">  
                         </div>
                         <div class="form-group">
-                            <a class="btn btn-danger" href="delete_user.php?id=<?php echo $user->id ?>">Delete</a>
+                            <a id="user_id" class="btn btn-danger" href="delete_user.php?id=<?php echo $user->id ?>">Delete</a>
                             <input type="submit" name="update" class="btn btn-primary" value="Update" >  
                         </div>
                             </form>
